@@ -22,6 +22,7 @@ const App = () => {
 			setTime(result)
 		} else {
 			setTime(0)
+			event.target.value = '0'
 		}
 	}
 	return (
