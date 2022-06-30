@@ -7,16 +7,13 @@ const App = () => {
 
 
 	useEffect(() => {
-		time > 0
-		&& setTimeout(() => setTime(prevState => {
-			if (time > 0) {
-				return prevState - 1
-			}
-			return 0
-		}), 1000)
+		const timer =
+			time > 0
+			&& setInterval(() => setTime(prevState => prevState - 1), 1000)
+		return () => clearInterval(timer)
 	}, [time])
 
-	if(time < 0) setTime(0)
+	if (time < 0) setTime(0)
 
 	const onKeyDown = (event) => {
 		if (event.key !== 'Enter') return
