@@ -16,6 +16,8 @@ const App = () => {
 		}), 1000)
 	}, [time])
 
+	if(time < 0) setTime(0)
+
 	const onKeyDown = (event) => {
 		if (event.key !== 'Enter') return
 		const result = parseInt(event.target.value)
