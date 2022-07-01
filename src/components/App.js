@@ -17,7 +17,15 @@ const App = () => {
 
 	const onKeyDown = (event) => {
 		if (event.key !== 'Enter') return
-		const result = parseInt(event.target.value)
+		const value = event.target.value
+		for (const el of value) {
+			if(isNaN(Number(el))) {
+				setTime(0)
+				event.target.value = '0'
+				return;
+			}
+		}
+		const result = parseInt(value)
 		if (!isNaN(result)) {
 			setTime(result)
 		} else {
